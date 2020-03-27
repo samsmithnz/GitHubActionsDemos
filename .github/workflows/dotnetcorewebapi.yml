@@ -1,3 +1,5 @@
+name: dotnet core webapi
+
 on:
   push:
     branches:
