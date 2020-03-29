@@ -22,7 +22,7 @@ jobs:
         $msBuildExe = "C:\Program Files(x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\msbuild.exe"
         $targetSolution = "${{ env.solution }}"
         #Note that the `" is an escape character sequence to quote strings, and `& is needed to start the command
-        $command = "`& $msBuildExe ${{ env.solution }}"
+        $command = "$msBuildExe ${{ env.solution }} -p:Configuration=${{ env.buildConfiguration }}"
         Write-Host $command
         Invoke-Expression $command
 
