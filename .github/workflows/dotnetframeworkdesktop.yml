@@ -5,7 +5,7 @@ on:
     branches: [ master ]
 
 env:
-  solution: 'DotNetFrameworkDesktop/*.sln'
+  solution: 'DotNetFrameworkDesktop/WindowsFormsApp1.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
@@ -16,7 +16,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: warrenbuckley/Setup-Nuget@v1
-    - run: nuget restore "${{ env.solution }}"
+      
+    - run: nuget restore '${{ env.solution }}'
     - run: |
         $msBuildExe = "C:\Program Files(x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\msbuild.exe"
         $targetSolution = "${{ env.solution }}"
