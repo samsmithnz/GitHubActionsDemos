@@ -17,7 +17,9 @@ jobs:
     - uses: actions/checkout@v2
     - uses: warrenbuckley/Setup-Nuget@v1      
     - run: nuget restore '${{ env.solution }}'
-    - run: C:\Program Files(x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\msbuild.exe ${{ env.solution }}     
+    - name: Setup MSBuild.exe
+      uses: warrenbuckley/Setup-MSBuild@v1
+    - run: msbuild ${{ env.solution }} /p:Configuration=${{ env.buildConfiguration }}    
     - run: |
         #-p:Configuration=${{ env.buildConfiguration }}
         #$msBuildExe = "C:\Program Files(x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\msbuild.exe"
