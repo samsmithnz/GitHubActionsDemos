@@ -15,14 +15,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - uses: warrenbuckley/Setup-Nuget@v1
-      
+    - uses: warrenbuckley/Setup-Nuget@v1      
     - run: nuget restore '${{ env.solution }}'
+      
     - run: |
         $msBuildExe = "C:\Program Files(x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\msbuild.exe"
         $targetSolution = "${{ env.solution }}"
         #Note that the `" is an escape character sequence to quote strings, and `& is needed to start the command
-        $command = "`& `"$msBuildExe`" `"$targetSolution`"
+        $command = "`& $msBuildExe ${{ env.solution }}"
         Write-Host $command
         Invoke-Expression $command
 
