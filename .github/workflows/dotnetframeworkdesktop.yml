@@ -19,5 +19,5 @@ jobs:
     - run: nuget restore '${{ env.solution }}'
     - name: Setup MSBuild.exe
       uses: warrenbuckley/Setup-MSBuild@v1
-    - run: msbuild ${{ env.solution }} /p:Configuration=${{ env.buildConfiguration }} /p:platform=${{ env.buildPlatform }}
+    - run: msbuild '${{ env.solution }}' /p:Configuration='${{ env.buildConfiguration }}' /p:platform='${{ env.buildPlatform }}'
 
