@@ -1,0 +1,28 @@
+name: .NET Framework Desktop
+
+on:
+  push:
+    branches: [ master ]
+
+env:
+  solution: 'DotNetFrameworkDesktop/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: warrenbuckley/Setup-Nuget@v1
+    - run: nuget  ${{ env.solution }}
+      shell: powershell
+    - run: |
+        $msBuildExe = "C:\Program Files(x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\msbuild.exe"
+        $targetSolution = "${{ env.solution }}"
+        #Note that the `" is an escape character sequence to quote strings, and `& is needed to start the command
+        $command = "`& `"$msBuildExe`" `"$targetSolution`"
+        Write-Host $command
+        Invoke-Expression $command
+
