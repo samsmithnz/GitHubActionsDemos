@@ -1,4 +1,4 @@
-name: .NET Core WebAPI
+name: ".NET Core WebAPI"
 
 on:
   push:
