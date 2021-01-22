@@ -15,8 +15,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - uses: warrenbuckley/Setup-Nuget@v1      
+    - uses: nuget/setup-nuget@v1    
     - run: nuget restore '${{ env.solution }}'
     - name: Setup MSBuild.exe
-      uses: warrenbuckley/Setup-MSBuild@v1
+      uses: microsoft/setup-msbuild@v1.0.2
     - run: msbuild '${{ env.solution }}' /p:Configuration='${{ env.buildConfiguration }}' /p:platform='${{ env.buildPlatform }}'
