@@ -8,7 +8,7 @@ env:
   buildConfiguration: Release
 jobs:
   build:
-    if: le(1,1)
+    if: or(1==1,0==0)
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
