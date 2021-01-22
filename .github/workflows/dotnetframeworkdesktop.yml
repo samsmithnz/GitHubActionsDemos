@@ -1,4 +1,4 @@
-name: .NET Framework Desktop
+name: ".NET Framework Desktop"
 
 on:
   push:
