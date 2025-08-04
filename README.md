@@ -1,5 +1,7 @@
 # GitHubActionsDemos
 
+Used by [AzurePipelinesToGitHubActionsConverter](https://github.com/samsmithnz/AzurePipelinesToGitHubActionsConverter) 
+
 ## Current builds running
 
 [![.NET Core WebAPI](https://github.com/samsmithnz/GitHubActionsDemos/workflows/.NET%20Core%20WebAPI/badge.svg)](https://github.com/samsmithnz/GitHubActionsDemos/actions?query=workflow%3A%22.NET+Core+WebAPI%22) 
