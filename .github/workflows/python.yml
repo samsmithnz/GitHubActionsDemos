@@ -12,14 +12,15 @@ jobs:
     strategy:
       matrix:
         PYTHON_VERSION:
-        - 3.5
-        - 3.6
-        - 3.7
-      max-parallel: 3
+        - 3.9
+        - 3.10
+        - 3.11
+        - 3.12
+      max-parallel: 4
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v4
     - name: Setup Python ${{ matrix.PYTHON_VERSION }}
-      uses: actions/setup-python@v1
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.PYTHON_VERSION }}
     - run: python Python/Hello.py
